@@ -1,21 +1,28 @@
 import java.util.Random;
 
-import Items.CynradBow;
-import Items.LongBowAdapter;
+import Items.*;
 import Items.OldVersion.LongBow;
 import Pawn.Hero;
+import screamobserver.PainFulScreamObserver;
 
 public class Game {
 
     public Game() {
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         UserIO userinteraction = new UserIO();
 
+        IEquipment weaponPlayer1= EquipmentFactoryMethod.create(EquipmentType.CynradBow);
+
+
         Random randomNumberGenerator = new Random();
-        Hero[] playerList = { new Hero("Player 1", new LongBowAdapter(new LongBow(randomNumberGenerator))),
-                new Hero("Player 2", new CynradBow(randomNumberGenerator)) };
+
+        Hero hero1 = new Hero("Player 1", weaponPlayer1);
+        hero1.subscribeTo(new PainFulScreamObserver());
+        Hero hero2 = new Hero("Player 2", new LongBowAdapter(new LongBow(randomNumberGenerator)));
+        hero2.subscribeTo(new PainFulScreamObserver());
+        Hero[] playerList = {hero1, hero2};
 
         boolean run = true;
 

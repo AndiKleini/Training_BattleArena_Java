@@ -3,17 +3,16 @@ package Items;
 import Items.OldVersion.LongBow;
 import Pawn.Hero;
 
-public class LongBowAdapter implements IEquipment {
 
-    private LongBow longBowLegacyInstance;
+public class LongBowAdapter implements IEquipment{
+    private LongBow longBow;
 
-    public LongBowAdapter(LongBow longBowLegacyInstance) {
-        this.longBowLegacyInstance = longBowLegacyInstance;
+    public LongBowAdapter(LongBow longBow) {
+        this.longBow = longBow;
     }
 
     @Override
     public void use(Hero other) {
-        int damage = this.longBowLegacyInstance.looseAndHit();
-        other.reduceHealth(damage);
+        other.reduceHealth(longBow.looseAndHit());
     }
 }

@@ -4,8 +4,9 @@ import java.util.Random;
 import java.util.Vector;
 
 import Items.IEquipment;
+import screamobserver.DamageCausedSubjectBase;
 
-public class Hero {
+public class Hero extends DamageCausedSubjectBase {
     private String name;
     private int health;
     private int coins;
@@ -43,6 +44,7 @@ public class Hero {
     }
 
     public void reduceHealth(int hitpoints) {
+        this.notifyHit(hitpoints);
         this.health -= hitpoints;
     }
 
