@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class LongBow {
 
-    private Random randomNumberGenerator;
+    private final Random randomNumberGenerator;
     private static final int strength = 3;
 
     public LongBow(Random randomNumberGenerator) {
