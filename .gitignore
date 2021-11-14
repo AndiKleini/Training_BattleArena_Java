@@ -80,7 +80,7 @@ _TeamCity*
 [Ee]xpress/
 
 # output folder
-*/out/
+out/
 
 # DocProject is a documentation generator add-in
 DocProject/buildhelp/
