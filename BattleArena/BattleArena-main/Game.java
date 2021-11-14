@@ -1,6 +1,8 @@
 import java.util.Random;
 
 import Items.CynradBow;
+import Items.LongBowAdapter;
+import Items.OldVersion.LongBow;
 import Pawn.Hero;
 
 public class Game {
@@ -12,7 +14,7 @@ public class Game {
         UserIO userinteraction = new UserIO();
 
         Random randomNumberGenerator = new Random();
-        Hero[] playerList = { new Hero("Player 1", new CynradBow(randomNumberGenerator)),
+        Hero[] playerList = { new Hero("Player 1", new LongBowAdapter(new LongBow(randomNumberGenerator))),
                 new Hero("Player 2", new CynradBow(randomNumberGenerator)) };
 
         boolean run = true;
